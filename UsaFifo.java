@@ -20,19 +20,21 @@ public class UsaFifo {
             switch(opcao){
                 case 1: entra = JOptionPane.showInputDialog("Informe a idade");
                 idade = Integer.parseInt(entra);
-                if(minhaFila.inserir(idade))
+                if(minhaFila.inserir(idade) == true)
                 System.out.println("\nIdade inserida com sucesso");
                 else
                 System.out.println("\nImpossivel inserir - OVERFLOW");
                 break;
-                case 2:	if (minhaFila.retirar())
-			        System.out.print("\nElemento retirado do topo");
-		else
-			System.out.print("\nImpossivel retirar - UNDERFLOW ");
-		break;
-				case 3: minhaFila.mostrar();
-		break;
+                case 2: aux = minhaFila.retirar();
+                if(aux == -999)
+                System.out.println("A lista está vazia");
+                else 
+                System.out.println("\nFoi retirado o primeiro elemento da fila" + aux);
+                break;
+                case 3: minhaFila.mostrar();
+		        break;
 				case 4: minhaFila.detonar();
+                break;
 		}
 			
 			} while (opcao != 9);
